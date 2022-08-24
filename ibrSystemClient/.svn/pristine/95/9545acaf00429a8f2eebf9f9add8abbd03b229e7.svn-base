@@ -1,0 +1,106 @@
+<html>
+<head>
+
+  <title>אתר לצפייה בתקנים</title>
+
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+  <link rel="SHORTCUT ICON" href="images/favicon.ico" />
+
+  <!-- build:css(.tmp) styles/core.css -->
+    <link href="styles/bootstrap.css" rel="stylesheet"/>
+    <link href="styles/core.css" rel="stylesheet"/>
+  <!-- endbuild -->
+
+</head>
+
+<body onload="checkBrowserVersion();changeCSSClass(window.location)" ng-app="ibrsystemClientApp">
+
+
+<div class="tkn_main_wrap" id="mainClass">
+
+  <div class="tkn_top">
+    <a  onclick="changeCSSClass('about')" href="#/about" class="tkn_logo"><img src="images/logo.png"/></a>
+  </div>
+  <div class="tkn_manu">
+    <ul>
+      <li id="about" onclick="changeCSSClass('about')"><a href="#/about">אודות</a></li>
+      <li id="menu" data-trig="menu" class="">
+        <a href="">תקנים רשמיים/בחקיקה</a>
+        <ul class="tkn_sub_menu">
+          <li onclick="changeCSSClass('standards1')" id="standards1"><a href='#/standards/1/#'>תקנים רישמיים</a></li>
+          <li onclick="changeCSSClass('standards2')" id="standards2"><a href='#/standards/2/#'>תקנים בחקיקה</a></li>
+          <li onclick="changeCSSClass('standards3')" id="standards3"><a href='#/standards/3/#'>תקנים רשמיים בתהליך אישור משרד הכלכלה והתעשייה</a></li>
+          <li onclick="changeCSSClass('standards4')" id="standards4"><a href='#/standards/4/#'>תקנים רשמיים שנחתמו ע"י הממונה אבל עדיין לא נכנסו לתוקף</a></li>
+          <li onclick="changeCSSClass('standards5')" id="standards5"><a href='#/standards/5/#'>תקנים בבחינת רשמיות</a></li>
+          <li onclick="changeCSSClass('standards6')" id="standards6"><a href='#/standards/6/#'>תקני מכונות הנשמה</a></li>
+          <li onclick="changeCSSClass('standards7')" id="standards7"><a href='#/standards/7/#'>תקנים בתוקף שעומדים להיות תקנים מחייבים</a></li>
+          <li onclick="changeCSSClass('standards8')" id="standards8"><a href='#/standards/8/#'>תקנים זרים שמאוזכרים בביקורת הציבור</a></li>
+        </ul>
+      </li>
+
+      <li onclick="changeCSSClass('faq')" id="faq"><a href="#/faq">שאלות ותשובות</a></li>
+      <li onclick="changeCSSClass('contact')" id="contact"><a href="#/contact">צור קשר</a></li>
+      <li onclick="changeCSSClass('licence')" id="licence"><a href="#/licence">תקנון</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div ng-view=""></div>
+  </div>
+
+
+  <div class="tkn_footer">
+    <div class="tkn_shade">
+      <img src="images/footer.png"/>
+    </div>
+    <ul>
+      <li onclick="changeCSSClass('about')"><a href="#/about">אודות</a></li>
+      <li onclick="changeCSSClass('faq')"><a href="#/faq">שאלות ותשובות</a></li>
+      <li onclick="changeCSSClass('contact')"><a href="#/contact">צור קשר</a></li>
+      <li onclick="changeCSSClass('licence')"><a href="#/licence">תקנון</a></li>
+      <li><a target="_blank" href='http://www.sii.org.il'>אתר מכון התקנים</a></li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js({.tmp,app}) scripts/ibrScripts.js -->
+<script src="scripts/js/ibrScripts.js" type="text/javascript"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/file.js"></script>
+<script src="scripts/controllers/registration.js"></script>
+<script src="scripts/controllers/standards.js"></script>
+<script src="scripts/factories/savedData.js"></script>
+<script src="scripts/services/file.js"></script>
+<script src="scripts/services/registration.js"></script>
+<script src="scripts/services/standards.js"></script>
+<script src="scripts/constants/resources.js"></script>
+<!-- endbuild -->
+
+
+
+
+</body>
+</html>

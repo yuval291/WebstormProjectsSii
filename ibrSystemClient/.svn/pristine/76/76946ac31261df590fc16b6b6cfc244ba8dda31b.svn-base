@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" style="overflow-y:hidden;">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <!-- default(white), black, black-translucent -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="FileOpen Web PDF Viewer" />
+        <meta name="App-Config" content="fullscreen=yes,useHistoryState=no,transition=no" />
+        <meta name="format-detection" content="telephone=no,email=no" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="750" />
+        <meta name="screen-orientation" content="portrait" />
+        <meta name="x5-orientation" content="portrait" />
+        <meta name="full-screen" content="yes" />
+        <meta name="x5-fullscreen" content="true" />
+        <meta name="browsermode" content="application" />
+        <meta name="x5-page-mode" content="app" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="renderer" content="webkit" />
+        <title>צפייה בתקנים</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="lib/foxit/lib/UIExtension.css" type="text/css" />
+        <link rel="stylesheet" href="css/branding.css" type="text/css" />
+        <script src="https://kit.fontawesome.com/ddfdfcf4b0.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <script src="lib/ua-parser-js/ua-parser.min.js"></script>
+		    <script src="js/config.js"></script>
+
+        <script >
+            //mark downloadFromUrl=true if the file needs to be downloaded by an end user from a different location than it loads in the viewer
+            //downloadFilepath should be the same as filepath in all implementations except when downloadFromUrl is true
+
+            let url = "https://172.16.101.188:443/ibrfile/"
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            let secureFileName = urlParams.get('secureFileName');
+
+            var downloadFromUrl = true;
+
+            var downloadFilepath = url+secureFileName;
+            var filepath = url+secureFileName;
+            // filename is used when saving a document out of the viewer
+            var filename = secureFileName;
+
+            var parser = new UAParser();
+            let uaResult = parser.getResult();
+
+            if (uaResult.browser.name === "IE") {
+                window.alert("המערכת תומכת בדפדפני Chrome,EDGE ו-Firefox");
+            }
+
+        </script>
+
+        <div id="fo-wrapper">
+        	<div class="fv__ui-nav"><a class="fv__ui-nav-logo" href="javascript:location.reload()"><i class="fv__icon-logo"></i></a></div>
+        	<div id="pdf-ui"></div>
+        	<div id="app"></div>
+
+		</div>
+        <script src="js/webpack/wasm.bundle.js"></script>
+        <script src="js/webpack/Foxit.bundle.js"></script>
+        <script src="js/webpack/Main.bundle.js"></script>
+        <script src="js/webpack/Vue.bundle.js"></script>
+
+    </body>
+</html>

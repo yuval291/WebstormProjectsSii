@@ -1,0 +1,32 @@
+﻿
+        <div class="tkn_main_pic">
+            <img src="images/top.jpg" width="100%" height="35%"/>
+        </div>
+
+        <div class="tkn_content">
+
+<pre>
+<h2>הורד את המסמך</h2>
+
+1) אם לא עשית זאת עדיין,
+2) לחץ על הקישור למטה כדי להוריד את התקן, ופתח אותו בחלון חדש
+
+    <div>
+    	<div>{{waitIndicate}}</div>
+        <input type="button" ng-show="!isDownloadFinish" ng-disabled="isDisabled" ng-click="disabledClick();downloadFile(fileData.pdfName,fileData.userName)" class="tkn_btn" value="לחץ להורדת המסמך" />
+        <input type="button" ng-show="isDownloadFinish" ng-click="getFile(filePath,fileData.pdfName)" class="tkn_btn_blue" value="לחץ להצגת המסמך" />
+        <br>
+        {{errorData}}
+    </div>
+
+
+סימני מים - בתחתית של כל דף בחומרים ברישיון יוטבע סימן מים על-ידי SII, שיכלול את הטקסט הבא:
+תקן זה מוצג לקריאה בלבד לשם לקוח   [...]למכון התקנים הישראלי יש זכויות יוצרים בתקן. בנוסף לזכויות היוצרים של מכון התקנים הישראלי יש זכויות יוצרים בתקנים השונים, כולם או מקצתם, לארגונים אחרים.אין לצלם, להדפיס, להעתיק או לעשות כל שימוש אחר בתקן.
+
+</pre>
+
+
+
+        </div>
+
+

@@ -1,0 +1,23 @@
+﻿//This file contains a sample configuration for the WebPdfViewer project.
+//To run this project, you must create a config.js file in the root of the project.
+//You can copy the text of this file, paste it into config.js and proceed to run the project.
+//For a default configuration, all values can be kept.
+
+const config = {
+
+    //Variables to configure
+
+
+    //This is the path to the locales folder in the foxit sdk library
+    absolutePathToLocales: "lib/foxit/lib/locales/",
+    foxitLibPath:"lib/foxit/lib/",
+    serviceWorkerPath: "js/service-worker-cache.js",
+    returnButtonText: "Close Document",
+    savechangeSuccessText: "Your changes have been saved",
+    disableSaveChangeAlertText: 'You have disabled the "Saved Change Success" alert. To change this, visit the preferences menu in the upper right hand corner of the screen.',
+    saveChangeWarningAlertText: 'You have added changes to the PDF, but your changes have not been saved. Click the "Save Now" button above to save your changes.',
+    docReturnedAlertText:"Your document has been returned",
+    docExpiredAlertText:"Your document loan time has expired.",
+
+
+}

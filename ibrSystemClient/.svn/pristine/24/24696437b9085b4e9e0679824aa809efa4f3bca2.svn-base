@@ -1,0 +1,113 @@
+
+<div class="tkn_main_pic">
+    <img src="images/top.jpg" width="100%" height="35%"/>
+</div>
+
+<div class="tkn_content">
+
+    <div class="tkn_content_inner">
+
+        <div ng-show="standardsType == 1">
+            <h2>תקנים רישמיים</h2>
+        </div>
+        <div ng-show="standardsType == 2">
+            <h2>תקנים בחקיקה</h2>
+        </div>
+      <div ng-show="standardsType == 3">
+        <h2>תקנים רשמיים בתהליך אישור משרד הכלכלה והתעשייה</h2>
+      </div>
+      <div ng-show="standardsType == 4">
+        <h2>תקנים רשמיים שנחתמו ע"י הממונה אבל עדיין לא נכנסו לתוקף</h2>
+      </div>
+      <div ng-show="standardsType == 5">
+        <h2>תקנים בבחינת רשמיות</h2>
+      </div>
+      <div ng-show="standardsType == 6">
+        <h2>תקני מכונות הנשמה</h2>
+      </div>
+      <div ng-show="standardsType == 7">
+        <h2>תקנים בתוקף שעומדים להיות תקנים מחייבים</h2>
+      </div>
+      <div ng-show="standardsType == 8">
+        <h2>תקנים זרים שמאוזכרים בביקורת הציבור</h2>
+      </div>
+      <br>
+        <form name="search_form" ng-keyup="$event.keyCode == 13 ? getBySearchStandard(standardNumber,standardFullName) : null">
+            <div class="tkn_search">
+                <table align="left">
+                    <tr>
+                        <td>
+                            <input ng-model="standardNumber" class="tkn_inpt" name="standardNumber" placeholder="מספר תקן" ng-maxlength=5 ng-pattern="/^[0-9]*$/"/>
+                        </td>
+                        <td>
+                            או
+                        </td>
+                        <td>
+                            <input  ng-model="standardFullName" class="tkn_inpt" name="standardFullName" placeholder="כותר תקן" ng-maxlength=50 />
+                        </td>
+                        <td>
+                            <input class="tkn_icon tkn_ico_search" type="button" ng-disabled="(standardFullName == undefined || standardFullName.length == 0) && (standardNumber == undefined || standardNumber.length == 0)"  ng-click='getBySearchStandard(standardNumber,standardFullName)'/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="error" ng-show="search_form.standardNumber.$dirty && search_form.standardNumber.$invalid">
+                                <small class="error" ng-show="search_form.standardNumber.$error.maxlength"> יש להזין עד 5 תווים </small>
+                                <small class="error" ng-show="search_form.standardNumber.$error.pattern">הוזנו תווים לא מותרים</small>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td>
+                            <div class="error" ng-show="search_form.standardFullName.$dirty && search_form.standardFullName.$invalid">
+                                <small class="error" ng-show="search_form.standardFullName.$error.maxlength"> יש להזין עד 50 תווים </small>
+                                <small class="error" ng-show="search_form.standardFullName.$error.pattern">הוזנו תווים לא מותרים</small>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-if="!standardsForPage.length">
+              <div class="tkn_info">{{errorData}}</div>
+            </div>
+        </form>
+
+        <div class="tkn_list">
+
+            <div>
+                <div>{{waitIndicate}}</div>
+                <div class="tkn_row" ng-repeat="standard in standardsForPage">
+                    <div class="tkn_actions">
+                        <a data-action="watch" class="tkn_btn can" href="#/registration/{{standard.pdfName}}">לצפייה</a>
+                        <a data-action="buy" class="tkn_btn" ng-if="standardType == 1" target="_blank" href="https://portal.sii.org.il/tekentocart.aspx?tekenNumber={{standard.standardNumber}}&Type={{standard.fileType}}&Date={{standard.publicityDate}}&partNumber={{standard.partNumber}}&partnumberdecimal={{standard.decimalPart}}" >לרכישה</a>
+                    </div>
+
+                    <div class="tkn_data">
+                      <span class="tkn_info"><b>{{standard.standardFullName}}</b> <span ng-if="standard.fixNumber != 0 && (standardType == 3 || standardType == 4 || standardType == 5 )"> </span><b>{{fromYears}} {{standard.standardPublicityYear}}</b></span>
+                        <div class="tkn_info"><b>{{standard.standardTitle}}</b></div>
+                    </div>
+
+                  <div class="tkn_info" ng-repeat="listOfLawName in standard.listOfLawNames">
+                    {{listOfLawName}}
+                  </div>
+
+                </div>
+                <div ng-if="standardsForPage.length">
+                    <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"  class="pagination-sm pull-right"  ng-click="pageChanged(currentPage)" items-per-page="maxSize" boundary-links="true" rotate="false" previous-text="הקודם" next-text="הבא" first-text=">>" last-text="<<"></pagination>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <br><br>
+    <div class="tkn_search">
+      לתשומת לב-
+      באתר זה התיאור "מחייב/רישמי" מתייחס הן לתקן שהינו רשמי/מחייב במלואו והן לתקן שהינו רישמי/מחייב רק בחלקו.
+      בכל מקרה, המידע האמור אינו מחייב ואינו בא במקום עיון במידע המתפרסם בפרסומים הרשמיים של מדינת ישראל ובהתאם לנדרש לפי כל דין. במידה ותתגלה סתירה או אי התאמה בין המידע המתפרסם כאן לבין מידע המתפרסם בפרסומים הרשמיים של מדינת ישראל, יגבר המידע המתפרסם בפרסומים הרשמיים.
+    </div>
+</div>
+
+
+

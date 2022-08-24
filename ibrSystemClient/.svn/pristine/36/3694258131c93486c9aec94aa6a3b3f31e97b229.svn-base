@@ -1,0 +1,77 @@
+.fv__ui-nav {
+    height: 48px;
+    background: #ffffff;
+}
+
+.fv__ui-nav-logo .fv__icon-logo {
+    height: 30px;
+    width: 122px;
+}
+
+/* sets position of UI tabs - Home, Comment, etc */
+.fv__ui-toolbar .fv__ui-tab-nav {
+    margin-left: 160px;
+}
+
+.fv__ui-list-box .fv__ui-list-leaf.active {
+    background: #bbbbbb; /* light */
+}
+
+.fv__ui-dropdown-list.fv__ui-sign-dropdown-list .fv__ui-sign-item:not(.disabled):hover {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-dropdown-list > li.fv__ui-dropdown-button.active, .fv__ui-dropdown-list > li.fv__ui-dropdown-button:hover {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-commentlist-comment-menus .fv__ui-dropdown-item:hover {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-commentlist-reply-menu .fv__ui-dropdown-item:hover {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-button.active {
+    background: #bbbbbb; /* light */
+}
+
+.fv__ui-button:not(.disabled):hover {
+    background: #bbbbbb; /* light */
+}
+
+.fv__ui-toolbar .fv__ui-dropdown.active {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-toolbar .fv__ui-dropdown.selected .fv__ui-dropdown-icon, .fv__ui-toolbar .fv__ui-dropdown:not(.disalbed):hover .fv__ui-dropdown-icon {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-toolbar .fv__ui-dropdown-toggler.active {
+    background-color: #bbbbbb; /* light */
+}
+
+.fv__ui-toolbar .fv__ui-dropdown.selected, .fv__ui-toolbar .fv__ui-dropdown:not(.disalbed):hover {
+    border-color: #a7a7a7; /* medium */
+    box-sizing: border-box
+}
+
+.fv__ui-dropdown.active > .fv__ui-dropdown-toggler > .fv__ui-dropdown-caret {
+    background-color: #a7a7a7; /* medium */
+}
+
+.fv__ui-mobile .fv__ui-mobile-header {
+    background-color: #5e5e5e; /* dark */
+}
+
+    .fv__ui-mobile .fv__ui-mobile-header .fv__ui-button.active {
+        background: #a7a7a7; /* medium */
+    }
+
+    .fv__ui-mobile .fv__ui-mobile-header .fv__ui-dropdown.active > .fv__ui-dropdown-toggler > .fv__ui-dropdown-caret {
+        background-color: #a7a7a7;
+    }
+
+

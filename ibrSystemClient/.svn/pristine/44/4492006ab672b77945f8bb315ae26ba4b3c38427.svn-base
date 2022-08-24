@@ -1,0 +1,162 @@
+﻿
+<div class="tkn_main_pic">
+    <img src="images/top.jpg" width="100%" height="35%"/>
+</div>
+
+<div class="tkn_content">
+
+  <div class="tkn_registration_pg">
+    <pre>
+    <h2>הרשמה</h2>
+
+    <b>כדי לקרוא את המסמכים <h1>לקריאה בלבד</h1> המתפרסמים באתר זה, עליך להירשם.</b>
+
+    <div class="tkn_icon tkn_check" data-type="checkbox" data-checked="true"></div><b> לתשומת לבך, ההרשמה היא להפעלת עיון אחת בלבד. משתמשים החוזרים אל האתר בהפעלה אחרת או ביום אחר יתבקשו למלא מחדש את טופס ההרשמה.</b>
+
+באתר לצפייה בתקנים יופיעו התקנים במתכונת של קריאה בלבד, מאחר והם מוגנים בזכויות יוצרים. מכון התקנים הישראלי סבור כי התקנים שפותחו על ידי אותם ארגוני SDO ומאומצים על ידי תקנים ישראליים, הם יצירות מוגנות בחוקים בינלאומיים ושל ישראל בנושא זכויות יוצרים וכי יצירות אלה אינן מאבדות את הגנת זכויות היוצרים רק משום שנכללו בחקיקה מתוקף הפניה, וכי אתר לצפייה בתקנים זה הוא שיטה אחת מיני רבות להפוך מסמכים שהוכללו מתוקף הפניה ל'זמינים באופן סביר' לאנשים המושפעים מאותה חקיקה.
+    </pre>
+
+	<pre>המסומן בכוכבית הינו שדה חובה</pre>
+        <form novalidate  name="registration_form" ng-submit="registration(userDetails)" >
+
+            <div class="tkn_form">
+                <table>
+                     <tr>
+                        <td data-col="icon">
+                            <div  class="tkn_icon tkn_valid"></div>
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-model="userDetails.idNumber" ng-blur="checkIdNumber(userDetails.idNumber)" name="idNumber" ng-pattern="/^[0-9]*$/" placeholder="ת.ז"  ng-maxlength=9 required  />
+                            <div class="error" ng-show="registration_form.idNumber.$dirty && registration_form.idNumber.$invalid">
+                                <small class="error" ng-show="registration_form.idNumber.$error.maxlength">
+יש להזין עד 9 תווים
+                                </small>
+                                <small class="error" ng-show="registration_form.idNumber.$error.pattern">
+                                    הוזנו תווים לא מותרים
+                                </small>
+                            </div>
+                            {{errorData}}
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td data-col="icon">
+                                <div  class="tkn_icon tkn_valid"></div>
+                            </td>
+
+                            <td data-col="field">
+                                <input type="text" ng-disabled="isDisabled" ng-model="userDetails.userName" name="userName" ng-pattern="/^[a-zA-Z0-9.' +,\u05D0-\u05F3]*$/" placeholder="שם מלא" ng-minlength=2 ng-maxlength=25 required  />
+                                <div class="error" ng-show="registration_form.userName.$dirty && registration_form.userName.$invalid">
+                                    <small class="error" ng-show="registration_form.userName.$error.maxlength">
+יש להזין עד 25 תווים
+                                    </small>
+                                    <small class="error" ng-show="registration_form.userName.$error.minlength">
+יש להזין לפחות 2 תווים
+                                    </small>
+                                    <small class="error" ng-show="registration_form.userName.$error.pattern">
+הוזנו תווים לא מותרים
+                                    </small>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-col="icon">
+                                <div  class="tkn_icon tkn_valid"></div>
+                            </td>
+
+                            <td data-col="field">
+                                <input type="email" ng-disabled="isDisabled" ng-model="userDetails.email" name="email"  placeholder="דואר אלקטרוני"  ng-maxlength=50 required  />
+                                <div class="error" ng-show="registration_form.email.$dirty && registration_form.email.$invalid">
+                                    <small class="error" ng-show="registration_form.email.$error.maxlength">
+יש להזין עד 50 תווים
+                                    </small>
+                                    <small class="error" ng-show="registration_form.email.$error.email">
+דואר לא תקין
+                                    </small>
+                                </div>
+
+                            </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-disabled="isDisabled" ng-model="userDetails.city" name="city" placeholder="עיר"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+                            <div  class="tkn_icon tkn_valid"></div>
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-disabled="isDisabled" ng-model="userDetails.organization" name="organization" ng-pattern="/^[a-zA-Z0-9.' +,\u05D0-\u05F3]*$/" placeholder="אירגון" ng-minlength=2 ng-maxlength=50 required  />
+                            <div class="error" ng-show="registration_form.organization.$dirty && registration_form.organization.$invalid">
+                                <small class="error" ng-show="registration_form.organization.$error.maxlength">
+                                    יש להזין עד 50 תווים
+                                </small>
+                                <small class="error" ng-show="registration_form.organization.$error.minlength">
+                                    יש להזין לפחות 2 תווים
+                                </small>
+                                <small class="error" ng-show="registration_form.organization.$error.pattern">
+                                    הוזנו תווים לא מותרים
+                                </small>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-disabled="isDisabled" ng-model="userDetails.phoneNumber" name="phoneNumber" placeholder="מספר טלפון"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-disabled="isDisabled" ng-model="userDetails.street" name="street" placeholder="רחוב" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text"  ng-model="userDetails.zipCode" name="zipCode"  placeholder="מיקוד"  />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-col="icon">
+
+                        </td>
+
+                        <td data-col="field">
+                            <input type="text" ng-model="userDetails.faxNumber" name="faxNumber"  placeholder="מספר פקס"  />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tkn_actions">
+                <input type="submit" ng-disabled="registration_form.$invalid" class="tkn_btn" value="הבא" />
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+
+</div>
+
+
